@@ -25,7 +25,6 @@ SCREEN_HEIGHT = 700
 SCREEN_TITLE = "You can use Keys Right, Left, Up, and Down."
 
 # VARIABLES
-number_entiVirus = 0
 TouchEmemy1 = 0
 TouchEmemy2 = 0
 
@@ -71,7 +70,6 @@ def arrayToDrawing():
 def ememyMove0() :
     global canMove0, moveX, moveY, returnBack, TouchEmemy1, TouchEmemy2, TouchEmemy, YouWin
     canvas.moveto(canMove0, moveX,moveY)
-    
     if moveY<=420 and returnBack and YouWin:
         canvas.after(30, lambda:ememyMove0())
         moveY += 5
@@ -158,7 +156,6 @@ def moveRight(event):
         grid[p_row][p_column]=0
         grid[p_row][p_column+1]=1
         ScoreText += 10
-        number_entiVirus += 1
     elif grid[p_row][p_column+1]==4 and YouWin :
         grid[p_row][p_column]=0
         grid[p_row][p_column+1]=1
@@ -170,7 +167,7 @@ def moveRight(event):
     canMove1 = canvas.create_image(60,300, image=imageVirus1, anchor=NW)
     canMove2 = canvas.create_image(370,180, image=imageVirus2, anchor=NW)
     canMove3 = canvas.create_image(430,480, image=imageVirus3, anchor=NW)
-    if number_entiVirus==10 :
+    if ScoreText==100 :
         canvas.create_text(500,60, text="YOU WON!!!",fill="white", font=("Purisa", 50,"bold"))
         sd_Win()
         YouWin = False
@@ -179,6 +176,11 @@ def moveRight(event):
     canvas.create_text(510,630, text="If you can pick up many AntiVirus on the grid equal 100/100, you win.",fill="blue", font=("Purisa", 18))
     canvas.create_text(510,660, text="I am sorry to player this game is easy player becuase you cannot lose.",fill="blue", font=("Purisa", 18))
     canvas.create_text(170,90, text="Scores : " + str(ScoreText) + "/100",fill="yellow", font=("Purisa", 18))
+    canvas.create_image(900, 60, image=heart_image, anchor=NW)
+    canvas.create_image(850, 60, image=heart_image, anchor=NW)
+    canvas.create_image(800, 60, image=heart_image, anchor=NW)
+    canvas.create_image(750, 60, image=heart_image, anchor=NW)
+    canvas.create_image(700, 60, image=heart_image, anchor=NW)
     sd_RightLeftUpDown()
     arrayToDrawing()
     
@@ -194,7 +196,6 @@ def moveLeft(event):
         grid[p_row][p_column]=0
         grid[p_row][p_column-1]=1
         ScoreText += 10
-        number_entiVirus += 1
     elif grid[p_row][p_column-1]==4 and YouWin :
         grid[p_row][p_column]=0
         grid[p_row][p_column-1]=1
@@ -205,7 +206,7 @@ def moveLeft(event):
     canMove1 = canvas.create_image(60,300, image=imageVirus1, anchor=NW)
     canMove2 = canvas.create_image(370,180, image=imageVirus2, anchor=NW)
     canMove3 = canvas.create_image(430,480, image=imageVirus3, anchor=NW)
-    if number_entiVirus==10 :
+    if ScoreText==100 :
         canvas.create_text(500,60, text="YOU WON!!!",fill="white", font=("Purisa", 50,"bold"))
         sd_Win()
         YouWin = False
@@ -214,6 +215,11 @@ def moveLeft(event):
     canvas.create_text(510,630, text="If you can pick up many AntiVirus on the grid equal 100/100, you win.",fill="blue", font=("Purisa", 18))
     canvas.create_text(510,660, text="I am sorry to player this game is easy player becuase you cannot lose.",fill="blue", font=("Purisa", 18))
     canvas.create_text(170,90, text="Scores : " + str(ScoreText) + "/100",fill="yellow", font=("Purisa", 18))
+    canvas.create_image(900, 60, image=heart_image, anchor=NW)
+    canvas.create_image(850, 60, image=heart_image, anchor=NW)
+    canvas.create_image(800, 60, image=heart_image, anchor=NW)
+    canvas.create_image(750, 60, image=heart_image, anchor=NW)
+    canvas.create_image(700, 60, image=heart_image, anchor=NW)
     sd_RightLeftUpDown()
     arrayToDrawing()
     
@@ -230,7 +236,6 @@ def moveUp(event):
         grid[p_row][p_column]=0
         grid[p_row-1][p_column]=1
         ScoreText += 10
-        number_entiVirus += 1
     elif grid[p_row-1][p_column]==4 and YouWin :
         grid[p_row][p_column]=0
         grid[p_row-1][p_column]=1
@@ -241,7 +246,7 @@ def moveUp(event):
     canMove1 = canvas.create_image(60,300, image=imageVirus1, anchor=NW)
     canMove2 = canvas.create_image(370,180, image=imageVirus2, anchor=NW)
     canMove3 = canvas.create_image(430,480, image=imageVirus3, anchor=NW)
-    if number_entiVirus==10 :
+    if ScoreText==100 :
         canvas.create_text(500,60, text="YOU WON!!!",fill="white", font=("Purisa", 50,"bold"))
         sd_Win()
         YouWin = False
@@ -250,6 +255,11 @@ def moveUp(event):
     canvas.create_text(510,630, text="If you can pick up many AntiVirus on the grid equal 100/100, you win.",fill="blue", font=("Purisa", 18))
     canvas.create_text(510,660, text="I am sorry to player this game is easy player becuase you cannot lose.",fill="blue", font=("Purisa", 18))
     canvas.create_text(170,90, text="Scores : " + str(ScoreText) + "/100",fill="yellow", font=("Purisa", 18))
+    canvas.create_image(900, 60, image=heart_image, anchor=NW)
+    canvas.create_image(850, 60, image=heart_image, anchor=NW)
+    canvas.create_image(800, 60, image=heart_image, anchor=NW)
+    canvas.create_image(750, 60, image=heart_image, anchor=NW)
+    canvas.create_image(700, 60, image=heart_image, anchor=NW)
     sd_RightLeftUpDown()
     arrayToDrawing()
 
@@ -265,7 +275,6 @@ def moveDown(event):
         grid[p_row][p_column]=0
         grid[p_row+1][p_column]=1
         ScoreText += 10
-        number_entiVirus += 1
     elif grid[p_row+1][p_column]==4 and YouWin :
         grid[p_row][p_column]=0
         grid[p_row+1][p_column]=1
@@ -276,7 +285,7 @@ def moveDown(event):
     canMove1 = canvas.create_image(60,300, image=imageVirus1, anchor=NW)
     canMove2 = canvas.create_image(370,180, image=imageVirus2, anchor=NW)
     canMove3 = canvas.create_image(430,480, image=imageVirus3, anchor=NW)
-    if number_entiVirus==10 :
+    if ScoreText==100 :
         canvas.create_text(500,60, text="YOU WON!!!",fill="white", font=("Purisa", 50,"bold"))
         sd_Win()
         YouWin = False
@@ -285,6 +294,11 @@ def moveDown(event):
     canvas.create_text(510,630, text="If you can pick up many AntiVirus on the grid equal 100/100, you win.",fill="blue", font=("Purisa", 18))
     canvas.create_text(510,660, text="I am sorry to player this game is easy player becuase you cannot lose.",fill="blue", font=("Purisa", 18))
     canvas.create_text(170,90, text="Scores : " + str(ScoreText) + "/100",fill="yellow", font=("Purisa", 18))
+    canvas.create_image(900, 60, image=heart_image, anchor=NW)
+    canvas.create_image(850, 60, image=heart_image, anchor=NW)
+    canvas.create_image(800, 60, image=heart_image, anchor=NW)
+    canvas.create_image(750, 60, image=heart_image, anchor=NW)
+    canvas.create_image(700, 60, image=heart_image, anchor=NW)
     sd_RightLeftUpDown()
     arrayToDrawing()
 
@@ -332,15 +346,24 @@ def sd_RightLeftUpDown() :
         winsound.PlaySound("jump3.wav",winsound.SND_FILENAME | winsound.SND_ASYNC)
 def sd_Win() :
     winsound.PlaySound("upgrade5.wav",winsound.SND_FILENAME | winsound.SND_ASYNC)
-arrayToDrawing()
+# _____________________________________-heart____________________________-:
 
+heart_image= tk.PhotoImage(file="heart.png")
+canvas.create_image(900, 60, image=heart_image, anchor=NW)
+canvas.create_image(850, 60, image=heart_image, anchor=NW)
+canvas.create_image(800, 60, image=heart_image, anchor=NW)
+canvas.create_image(750, 60, image=heart_image, anchor=NW)
+canvas.create_image(700, 60, image=heart_image, anchor=NW)
+
+
+#__________________________________________________________________
 
 root.resizable(False,False)
 canvas.create_text(510,630, text="If you can pick up many AntiVirus on the grid equal 100/100, you win.",fill="blue", font=("Purisa", 18))
 canvas.create_text(510,660, text="I am sorry to player this game is easy player becuase you cannot lose.",fill="blue", font=("Purisa", 18))
 canvas.create_text(170,90, text="Scores : " + str(ScoreText) + "/100",fill="yellow", font=("Purisa", 18))
 canvas.create_text(500,50, text="Enjoy to play without lost.",fill="white", font=("Purisa", 20,"bold"))
-
+arrayToDrawing()
 
 
 root.mainloop()
