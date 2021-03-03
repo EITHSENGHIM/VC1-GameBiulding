@@ -56,7 +56,7 @@ def arrayToDrawing():
             else:
                 canvas.create_rectangle(60+x1,115+y1,60+x2,115+y2,fill="", outline="blue")
                 
-#--------------------------------------------------CONSTANTS---------------------------------------------# 
+#--------------------------------------------------Move Ememy one---------------------------------------------# 
 def ememyMove0() :
     global canMove0, moveX, moveY, returnBack, TouchEmemy1, TouchEmemy2, TouchEmemy, YouWin
     canvas.moveto(canMove0, moveX,moveY)
@@ -65,17 +65,12 @@ def ememyMove0() :
         moveY += 5
         if moveY==420 :
             returnBack = False
-        # if TouchEmemy1+5==moveX and (TouchEmemy2-165==moveY or TouchEmemy2-115==moveY or TouchEmemy2-65==moveY or TouchEmemy2-15==moveY) :
-            # TouchEmemy = False
     elif moveY>180 and not returnBack and YouWin:
         canvas.after(30, lambda:ememyMove0())
         moveY -= 5
         if moveY==180 :
             returnBack = True
-        # if TouchEmemy1+5==moveX and (TouchEmemy2-165==moveY or TouchEmemy2-115==moveY or TouchEmemy2-65==moveY or TouchEmemy2-15==moveY) :
-            # TouchEmemy = False
-    # print(moveX, moveY, TouchEmemy1+5, TouchEmemy2)
-#--------------------------------------------------CONSTANTS---------------------------------------------#
+#--------------------------------------------------Move Ememy Two---------------------------------------------#
 def ememyMove1() :
     global returnBack1, moveX1, moveY1, canMove1, TouchEmemy1, TouchEmemy2, TouchEmemy, YouWin
     canvas.moveto(canMove1, moveX1,moveY1)
@@ -84,16 +79,12 @@ def ememyMove1() :
         moveX1 += 5
         if moveX1==320 :
             returnBack1 = False
-        # if 120==moveX1 or 170==moveX1 or 220==moveX1 or 370 :
-            # TouchEmemy = False
     elif moveX1>105 and not returnBack1 and YouWin:
         canvas.after(30, lambda:ememyMove1())
         moveX1 -= 5
         if moveX1==105 :
             returnBack1 = True
-        # if 120==moveX1 or 170==moveX1 or 220==moveX1 or 370 :
-            # TouchEmemy = False
-#--------------------------------------------------CONSTANTS---------------------------------------------#
+#--------------------------------------------------Move Ememy three---------------------------------------------#
 def ememyMove2() :
     global returnBack2, moveX2, moveY2, canMove2, TouchEmemy1, TouchEmemy2, TouchEmemy, YouWin
     canvas.moveto(canMove2, moveX2,moveY2)
@@ -102,17 +93,12 @@ def ememyMove2() :
         moveX2 += 2
         if moveX2==680 :
             returnBack2 = False
-        # if TouchEmemy1+160>moveX2 or TouchEmemy1+210<moveX2 or TouchEmemy1+260>moveX2 or TouchEmemy1+310<moveX2 and TouchEmemy2==moveY2+175  :
-            # TouchEmemy = False
     elif moveX2>=400 and not returnBack2 and YouWin :
         canvas.after(10, lambda:ememyMove2())
         moveX2 -= 2
         if moveX2==400 :
             returnBack2 = True
-            
-        # if TouchEmemy1+160==moveX2 or TouchEmemy1+210==moveX2 or TouchEmemy1+260==moveX2 or TouchEmemy1+310==moveX2 and TouchEmemy2==moveY2+175 :
-            # TouchEmemy = False
-#--------------------------------------------------CONSTANTS---------------------------------------------#    
+#--------------------------------------------------Move Ememy Four---------------------------------------------#    
 def ememyMove3() :
     global returnBack3, moveX3, moveY3, canMove3, TouchEmemy1, TouchEmemy2, TouchEmemy, YouWin
     canvas.moveto(canMove3, moveX3,moveY3)
@@ -121,23 +107,19 @@ def ememyMove3() :
         moveX3 += 5
         if moveX3==755 :
             returnBack3 = False
-        # if TouchEmemy1==moveX3 and TouchEmemy2==moveY3 :
-            # TouchEmemy = False
     elif moveX3>=460 and not returnBack3 and YouWin :
         canvas.after(30, lambda:ememyMove3())
         moveX3 -= 5
         if moveX3==460 :
             returnBack3 = True
-        # if TouchEmemy1==moveX3 and TouchEmemy2==moveY3 :
-            # TouchEmemy = False
-#--------------------------------------------------CONSTANTS---------------------------------------------#
+#--------------------------------------------------Find the positions of grid---------------------------------------------#
 def findPlayerPosition(grid) :
     for i in range(len(grid)):
         for n in range(len(grid[i])):
             if grid[i][n]== 1 :
                 position=[i,n]
     return position
-#--------------------------------------------------CONSTANTS---------------------------------------------#
+#--------------------------------------------------Button go Right---------------------------------------------#
 def moveRight(event):
     global position, grid, canMove0, canMove1, canMove2, canMove3, number_entiVirus, TouchEmemy, YouWin , TouchEmemy, ScoreText
     position = findPlayerPosition(grid)
@@ -177,7 +159,7 @@ def moveRight(event):
     canvas.create_image(700, 60, image=heart_image, anchor=NW)
     sd_RightLeftUpDown()
     arrayToDrawing()
-#--------------------------------------------------CONSTANTS---------------------------------------------#   
+#--------------------------------------------------Button go Left---------------------------------------------#   
 def moveLeft(event):
     global position, grid, canMove0, canMove1, canMove2, canMove3, number_entiVirus, TouchEmemy, YouWin, TouchEmemy, ScoreText
     position = findPlayerPosition(grid)
@@ -216,8 +198,7 @@ def moveLeft(event):
     canvas.create_image(700, 60, image=heart_image, anchor=NW)
     sd_RightLeftUpDown()
     arrayToDrawing()
-    
-#--------------------------------------------------CONSTANTS---------------------------------------------#
+#--------------------------------------------------Button go Up---------------------------------------------#
 def moveUp(event):
     global position, grid, canMove0, canMove1, canMove2, canMove3, number_entiVirus, TouchEmemy, YouWin, TouchEmemy, ScoreText
     position = findPlayerPosition(grid)
@@ -256,7 +237,7 @@ def moveUp(event):
     canvas.create_image(700, 60, image=heart_image, anchor=NW)
     sd_RightLeftUpDown()
     arrayToDrawing()
-#--------------------------------------------------CONSTANTS---------------------------------------------#
+#--------------------------------------------------Button go Down---------------------------------------------#
 def moveDown(event):
     global position, grid, canMove0, canMove1, canMove2, canMove3, number_entiVirus, TouchEmemy, YouWin, TouchEmemy, ScoreText
     position = findPlayerPosition(grid)
@@ -295,27 +276,17 @@ def moveDown(event):
     canvas.create_image(700, 60, image=heart_image, anchor=NW)
     sd_RightLeftUpDown()
     arrayToDrawing()
-
-
-    
-
-# draw a line with white and black squares using the global array
-#--------------------------------------------------CONSTANTS---------------------------------------------#
+#--------------------------------------------------Main available of tkinter---------------------------------------------#
 root = tk.Tk()
 root.title(SCREEN_TITLE)
 root.geometry(str(SCREEN_WIDTH)+"x"+str(SCREEN_HEIGHT))
-
 canvas = tk.Canvas(root)
 canvas.pack(expand=True, fill="both")
-
 root.bind("<Left>", moveLeft)
 root.bind("<Right>", moveRight)
 root.bind("<Up>", moveUp)
 root.bind("<Down>", moveDown)
-
-
-
-#--------------------------------------------------CONSTANTS---------------------------------------------#
+#--------------------------------------------------Create image of grid---------------------------------------------#
 imageDoctor = PhotoImage(file="doctor.png")
 imageWall = PhotoImage(file="wall.png")
 bg=tk.PhotoImage(file="sky1.png")
@@ -325,13 +296,12 @@ imageVirus1 = PhotoImage(file="virus.png")
 imageVirus2 = PhotoImage(file="virus.png")
 imageVirus3 = PhotoImage(file="virus.png")
 entiVirus = PhotoImage(file="entiVirus.png")
-
-#--------------------------------------------------CONSTANTS---------------------------------------------#
+#--------------------------------------------------Available move of image---------------------------------------------#
 canMove0 = canvas.create_image(725,175, image=imageVirus0, anchor=NW)
 canMove1 = canvas.create_image(60,300, image=imageVirus1, anchor=NW)
 canMove2 = canvas.create_image(375,180, image=imageVirus2, anchor=NW)
 canMove3 = canvas.create_image(430,480, image=imageVirus3, anchor=NW)
-#--------------------------------------------------CONSTANTS---------------------------------------------#
+#--------------------------------------------------Call function and create function of sound---------------------------------------------#
 ememyMove0()
 ememyMove1()
 ememyMove2()
@@ -341,7 +311,7 @@ def sd_RightLeftUpDown() :
         winsound.PlaySound("jump3.wav",winsound.SND_FILENAME | winsound.SND_ASYNC)
 def sd_Win() :
     winsound.PlaySound("upgrade5.wav",winsound.SND_FILENAME | winsound.SND_ASYNC)
-#--------------------------------------------------CONSTANTS---------------------------------------------#
+#--------------------------------------------------Create image heart 5---------------------------------------------#
 
 heart_image= tk.PhotoImage(file="heart.png")
 canvas.create_image(900, 60, image=heart_image, anchor=NW)
@@ -349,8 +319,7 @@ canvas.create_image(850, 60, image=heart_image, anchor=NW)
 canvas.create_image(800, 60, image=heart_image, anchor=NW)
 canvas.create_image(750, 60, image=heart_image, anchor=NW)
 canvas.create_image(700, 60, image=heart_image, anchor=NW)
-
-#--------------------------------------------------CONSTANTS---------------------------------------------#
+#--------------------------------------------------Create Text for Instructions---------------------------------------------#
 root.resizable(False,False)
 canvas.create_text(510,630, text="If you can pick up many AntiVirus on the grid equal 100/100, you win.",fill="blue", font=("Purisa", 18))
 canvas.create_text(510,660, text="I am sorry to player this game is easy player becuase you cannot lose.",fill="blue", font=("Purisa", 18))
@@ -362,5 +331,5 @@ arrayToDrawing()
 root.mainloop()
 
 
-#--------------------------------------------------CONSTANTS---------------------------------------------#
-#--------------------------------------------------CONSTANTS---------------------------------------------#
+#--------------------------------------------------The end of programming of Game building---------------------------------------------#
+#--------------------------------------------------THANks---------------------------------------------#
